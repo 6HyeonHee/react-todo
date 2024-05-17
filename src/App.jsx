@@ -29,6 +29,7 @@ const init = [
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+  console.log(todos);
 
   return (
     <div className="app">

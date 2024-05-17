@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './TodoAdd.module.css';
 
 export default function TodoAdd({ todos, setTodos }) {
   const [txt, setTxt] = useState('');
+  const idRef = useRef(todos.length);
 
   function handleEnter(e) {
     if (e.key === 'Enter') {
@@ -13,7 +14,7 @@ export default function TodoAdd({ todos, setTodos }) {
   function handleAdd() {
     if (txt.trim()) {
       const newTodo = {
-        id: todos.length + 1,
+        id: ++idRef.current,
         text: txt,
         done: false,
       };
